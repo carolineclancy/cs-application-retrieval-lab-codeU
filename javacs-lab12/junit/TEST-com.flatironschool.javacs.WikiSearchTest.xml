@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Carolines-MacBook-Air-2.local" name="com.flatironschool.javacs.WikiSearchTest" skipped="0" tests="4" time="0.381" timestamp="2016-08-03T18:52:41">
+<testsuite errors="0" failures="0" hostname="Carolines-MacBook-Air-2.local" name="com.flatironschool.javacs.WikiSearchTest" skipped="0" tests="4" time="0.373" timestamp="2016-08-03T19:01:05">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="env.VISUAL" value="subl -w" />
@@ -63,7 +63,6 @@
     <property name="env.TERM_PROGRAM_VERSION" value="343.7" />
     <property name="path.separator" value=":" />
     <property name="java.vm.version" value="25.74-b02" />
-    <property name="env.JAVA_MAIN_CLASS_35360" value="org.apache.tools.ant.launch.Launcher" />
     <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.9.7/libexec/lib" />
     <property name="junit.output.dir" value="junit" />
     <property name="env.IRBRC" value="/Users/carolineclancy/.rvm/rubies/ruby-2.3.0/.irbrc" />
@@ -86,7 +85,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="java.class.path" value="/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/bin:/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/lib/jedis-2.8.0.jar:/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/lib/jsoup-1.8.3.jar:/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/lib/junit-4.12.jar:/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/lib/hamcrest-core-1.3.jar:/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/lib/hamcrest-library-1.3.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.9.7/libexec/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.flatironschool.javacs.WikiSearchTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junit/TEST-com.flatironschool.javacs.WikiSearchTest.xml formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter crashfile=/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junitvmwatcher3773723489816781666.properties propsfile=/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junit4823939862027105090.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.flatironschool.javacs.WikiSearchTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junit/TEST-com.flatironschool.javacs.WikiSearchTest.xml formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter crashfile=/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junitvmwatcher7672822398126788214.properties propsfile=/Users/carolineclancy/Documents/Codeu/cs-application-retrieval-lab-codeU/javacs-lab12/junit2175593284721523831.properties" />
     <property name="env.TERM_SESSION_ID" value="73D20106-618B-40BC-A989-096B6028C6D4" />
     <property name="env.USR_PATHS" value="/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin" />
     <property name="ant.file.type.JavaCS" value="file" />
@@ -112,13 +111,14 @@
     <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.9.7/libexec/lib/ant.jar" />
     <property name="source" value="1.7" />
     <property name="file.encoding" value="UTF-8" />
+    <property name="env.JAVA_MAIN_CLASS_35823" value="org.apache.tools.ant.launch.Launcher" />
     <property name="env.GIT_EDITOR" value="subl -w" />
     <property name="java.specification.version" value="1.8" />
     <property name="ant.project.invoked-targets" value="test" />
   </properties>
   <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testAnd" time="0.004" />
   <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testMinus" time="0.0" />
-  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testSort" time="0.0" />
+  <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testSort" time="0.001" />
   <testcase classname="com.flatironschool.javacs.WikiSearchTest" name="testOr" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
