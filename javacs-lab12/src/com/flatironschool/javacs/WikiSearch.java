@@ -6,8 +6,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+import java.util.Iterator;
 
 import redis.clients.jedis.Jedis;
 
@@ -60,8 +63,43 @@ public class WikiSearch {
 	 * @return New WikiSearch object.
 	 */
 	public WikiSearch or(WikiSearch that) {
-        // FILL THIS IN!
-		return null;
+		List<Entry<String, Integer>> thisList = this.sort();
+		List<Entry<String, Integer>> thatList = that.sort();
+
+        Map<String, Integer> newMap = new HashMap<String, Integer>();
+
+		for (int i = 0; i < thisList.size(); i++){
+			if (thisList.get(i).getValue() > 0){
+				newMap.put(thisList.get(i).getKey(), thisList.get(i).getValue());
+			}
+		}
+
+		for (int i = 0; i < thatList.size(); i++){
+			if (thatList.get(i).getValue() > 0){
+				if (newMap.containsKey(thatList.get(i).getKey())){
+					newMap.put(thatList.get(i).getKey(), totalRelevance(thatList.get(i).getValue(), newMap.get(thatList.get(i).getKey())));
+				} else {
+					newMap.put(thatList.get(i).getKey(), thatList.get(i).getValue());
+				}
+			}
+		}
+
+
+
+
+        // // FILL THIS IN!
+        // Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+        // Map.Entry<String, Integer> curr;
+        // Map<String, Integer> newMap = new HashMap<String, Integer>();
+        // //newMap.putAll(map);
+        // while (iter.hasNext()){
+        // 	curr = iter.next();
+        // 	if (this.getRelevance(curr.getKey()) > 0 || that.getRelevance(curr.getKey()) > 0){
+        // 		newMap.put(curr.getKey(), totalRelevance(this.getRelevance(curr.getKey()), that.getRelevance(curr.getKey())));
+        // 	}
+        // }
+		return new WikiSearch(newMap);
+
 	}
 	
 	/**
@@ -72,7 +110,22 @@ public class WikiSearch {
 	 */
 	public WikiSearch and(WikiSearch that) {
         // FILL THIS IN!
-		return null;
+        Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+        Map.Entry<String, Integer> curr;
+        Map<String, Integer> newMap = new HashMap<String, Integer>();
+        //newMap.putAll(map);
+        while (iter.hasNext()){
+        	curr = iter.next();
+
+        	if (this.getRelevance(curr.getKey()) > 0 && that.getRelevance(curr.getKey()) > 0){
+        		newMap.put(curr.getKey(), totalRelevance(this.getRelevance(curr.getKey()), that.getRelevance(curr.getKey())));
+        	}
+
+        }
+
+
+
+		return new WikiSearch(newMap);
 	}
 	
 	/**
@@ -83,7 +136,17 @@ public class WikiSearch {
 	 */
 	public WikiSearch minus(WikiSearch that) {
         // FILL THIS IN!
-		return null;
+        Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+        Map.Entry<String, Integer> curr;
+        Map<String, Integer> newMap = new HashMap<String, Integer>();
+        //newMap.putAll(map);
+        while (iter.hasNext()){
+        	curr = iter.next();
+        	if (this.getRelevance(curr.getKey()) > 0 && that.getRelevance(curr.getKey()) == 0){
+        		newMap.put(curr.getKey(), this.getRelevance(curr.getKey()));
+        	}
+        }
+		return new WikiSearch(newMap);
 	}
 	
 	/**
@@ -105,7 +168,34 @@ public class WikiSearch {
 	 */
 	public List<Entry<String, Integer>> sort() {
         // FILL THIS IN!
-		return null;
+        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>();
+        //Map.Entry<String, Integer> [] arr = (Map.Entry<String, Integer> [] )map.entrySet().toArray();
+
+        Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+        Map.Entry<String, Integer> curr;
+        while (iter.hasNext()){
+        	curr = iter.next();
+        	if (list.size() == 0){
+        		list.add(curr);
+        	} else {
+        		boolean added = false;
+        		Iterator<Entry<String, Integer>> iter1 = list.iterator();
+        		Entry<String, Integer> pos;
+        		int i = 0;
+        		while (iter1.hasNext() && !added){
+        			pos = iter1.next();
+        			if (curr.getValue() < pos.getValue()){
+        				list.add(i, curr);
+        				added = true;
+        			}
+        			i++;
+        		}
+        		if (!added){
+        			list.add(curr);
+        		}
+        	 }
+        }
+		return list;
 	}
 
 	/**
